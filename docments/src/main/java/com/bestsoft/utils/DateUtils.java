@@ -2,7 +2,10 @@ package com.bestsoft.utils;
 
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * author:33345099
+ * 
+ */
 public class DateUtils {
 	
 	private DateUtils(){
