@@ -7,7 +7,9 @@ import java.util.Date;
 import org.springframework.util.StringUtils;
 
 public class DateUtils {
-	
+	/**
+	 * 私有化构造器.
+	 */
 	private DateUtils(){
 		
 	}
