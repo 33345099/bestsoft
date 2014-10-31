@@ -1,7 +1,10 @@
 package com.bestsoft.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.springframework.util.StringUtils;
 
 public class DateUtils {
 	
@@ -41,6 +44,19 @@ public class DateUtils {
 	 */
 	public static Date dateBeforeDay(Date baseDate,int day){
 		return dateAddDay(baseDate, day*-1);
+	}
+	
+	public static String formatDateString(Date d){
+		return formatDateString(d, null);
+	}
+	
+	public static String formatDateString(Date d,String formateString){
+		if(StringUtils.isEmpty(formateString)){
+			formateString = "YYYY-MM-DD";
+		}
+		
+		SimpleDateFormat sdf = new SimpleDateFormat(formateString);
+	    return sdf.format(d);
 	}
 
 
