@@ -4,12 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 /**
  * author:33345099
-<<<<<<< HEAD
  * 
  */
-=======
- * /
->>>>>>> refs/remotes/origin/master
 public class DateUtils {
 	
 	private DateUtils(){
