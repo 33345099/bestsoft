@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.springframework.util.StringUtils;
+//import org.springframework.util.StringUtils;
 /**在github上直接修改代码**/
 public class DateUtils {
 	/**
@@ -53,12 +53,13 @@ public class DateUtils {
 	}
 	
 	public static String formatDateString(Date d,String formateString){
-		if(StringUtils.isEmpty(formateString)){
+		/*if(StringUtils.isEmpty(formateString)){
 			formateString = "YYYY-MM-DD";
 		}
 		
 		SimpleDateFormat sdf = new SimpleDateFormat(formateString);
-	    return sdf.format(d);
+	    return sdf.format(d);*/
+		return null;
 	}
 
 
