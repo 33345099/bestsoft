@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.cl.userManager.entity.Organization"
+		table="um_organization">
+
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="org.cl.common.core.orm.IdGenerator" />
+		</id>
+
+		<property name="code" type="java.lang.String">
+			<column name="code" />
+		</property>
+
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+
+		<property name="phone" type="java.lang.String">
+			<column name="phone" />
+		</property>
+
+		<property name="isLeaf" type="java.lang.Integer">
+			<column name="is_leaf" />
+		</property>
+
+		<property name="parentId" type="java.lang.Long">
+			<column name="parent_id" />
+		</property>
+
+		<many-to-one name="parent"
+			class="org.cl.userManager.entity.Organization" fetch="select"
+			insert="false" update="false">
+			<column name="parent_id" />
+		</many-to-one>
+
+		<property name="typeCode" type="java.lang.String">
+			<column name="type_code" />
+		</property>
+
+		<property name="cityId" type="java.lang.Long">
+			<column name="city_id" />
+		</property>
+
+		<property name="filialeId" type="java.lang.Long">
+			<column name="filiale_id" />
+		</property>
+		
+		<property name="isDelete" type="java.lang.Integer">
+			<column name="is_delete" />
+		</property>
+
+		<many-to-one name="filiale"
+			class="org.cl.userManager.entity.Organization" fetch="select"
+			insert="false" update="false">
+			<column name="filiale_id" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

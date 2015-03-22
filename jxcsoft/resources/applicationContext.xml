@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<description>Spring公共配置文件</description>
+	<context:property-placeholder location="classpath:application.properties" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="minPoolSize" value="${jdbc.minPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
+		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:/org/cl/**/entity/*.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor" />
+
+    <!-- 保存系统信息的类 -->
+    <bean id="contextHolder" class="org.cl.system.security.context.ContextHolder"/>
+    <!-- key manager -->
+    <bean id="keyManager" class="org.cl.system.security.KeyManager"/>
+
+	<!--  HibernateDaoSupport -->
+	<bean id="HibernateDaoSupport"
+		class="org.cl.common.core.orm.daoWrapper.HibernateDaoSupportWrapper">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!--  JdbcDaoSupport -->
+	<bean id="JdbcDaoSupport"
+		class="org.cl.common.core.orm.daoWrapper.JdbcDaoSupportWrapper">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+	<!--  HibernateDaoSupport and JdbcDaoSupport -->
+	<bean id="DaoSupport" class="org.cl.common.core.orm.daoWrapper.DaoSupport">
+		<property name="hibernateDaoSupport">
+			<ref local="HibernateDaoSupport" />
+		</property>
+		<property name="jdbcDaoSupport">
+			<ref local="JdbcDaoSupport" />
+		</property>
+	</bean>
+
+
+	<bean id="org.cl.common.core.orm.GenericDao" class="org.cl.common.core.orm.GenericDao" />
+
+	<!-- 事务配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+	<context:component-scan base-package="org.cl" />
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+    <!-- 定时清空临时文件夹 -->
+    <!-- 
+    <bean id="clearTempDirectoryJob" class="org.cl.common.schedule.ClearTempDirectoryJob"></bean>
+    <bean id="clearTempDirectoryJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">    
+          <ref bean="clearTempDirectoryJob"/> 
+        </property>
+        <property name="targetMethod">    
+          <value>work</value>
+        </property>
+        <!- 同一任务在前一次执行未完成而Trigger时间又到时是否并发开始新的执行, 默认为true. ->
+        <property name="concurrent" value="true" />
+    </bean> 
+    <bean id="clearTempDirectoryJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="clearTempDirectoryJobDetail"/>
+        </property>
+        <!- 实际使用，每周日晚上24点执行 ->
+        <property name="cronExpression" value="0 0 23 ? * SUN" />
+        <!- 调试用，每分钟执行一次 ->
+        <!- <property name="cronExpression" value="59 * 0-23 ? * SUN" /> ->
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+              <!- <ref local="cronTrigger"/>  ->
+              <ref local="clearTempDirectoryJobTrigger"/>
+            </list>
+        </property>
+        <!- 启动时延期2秒开始任务 ->
+        <property name="startupDelay" value="2" />
+    </bean>
+     -->
+</beans>

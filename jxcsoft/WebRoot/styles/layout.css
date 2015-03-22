@@ -1,0 +1,226 @@
+/*位置部分*/
+.navigation {
+	border: 1px #8EAFD0 solid;
+	background-color: #ffffff;
+	padding: 1px;
+	width: 100%;
+	height: 25px;
+	margin: 0px 0px 0px 0px;
+}
+
+.navigation-back {
+	width: 50%;
+	text-align: right;
+}
+
+.navigation img {
+	width: 13px;
+	height: 7px;
+}
+
+.navigation-end {
+	color: #982E00;
+	font-weight: bold;
+}
+
+/*查询部分*/
+.search_form {
+	border: 1px #8EAFD0 solid;
+	padding: 5px;
+	width: 100%;
+	margin: 5px 0px 0px 0px;
+}
+
+.search_form table {
+	width: 100%;
+}
+
+.search_form tr {
+	background-color: #ADD3DE;
+	color: #000666;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
+.search_form td {
+	border-right: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	background: #fff;
+}
+
+.search_form td select {
+	margin-left: 0px
+}
+
+.search_form  label {
+	width: 100%;
+	text-align: right;
+}
+
+/*页面内容部分*/
+.content {
+	border: 1px #8EAFD0 solid;
+	padding: 10px 10px 5px 10px;
+	margin: 5px 0px 0px 0px;
+	width: 100%;
+}
+
+.lockHeadContent {
+	margin: 5px 0px 0px 0px;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	height:expression(document.body.clientHeight-40);
+}
+
+.chart {
+	border: 1px #8EAFD0 solid;
+	padding: 10px 10px 0px 10px;
+	margin-top: 5px;
+	width: 100%;
+}
+
+.tabs {
+	margin: 5px;
+	width: 99%;
+}
+
+/*显示列表操作及分页部分部分*/
+.handle-table {
+	border-spacing: 1px;
+	border: 0px;
+	width: 100%;
+	margin: 0px, 0px, 0px, 0px;
+	background-color: #F2F2F2;
+}
+
+/*操作显示TD*/
+.handle-td {
+	text-align: right;
+	width: 55%;
+}
+
+/*操作显示TD*/
+.all-handle-td {
+	text-align: center;
+	width: 100%;
+}
+
+/*分页显示TD*/
+.page-td {
+	text-align: right;
+	width: 45%;
+}
+
+.grid-table {
+	width: 100%;
+	padding: 0;
+	margin: 0px, 0px, 0px, 0px;
+	border-top: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+.grid-table th {
+	font: bold;
+	color: #4f6b72;
+	border: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 3px 3px 3px 12px;
+	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+.grid-table td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #ffffff;
+	text-align: center;
+	color: #4f6b72;
+	padding: 2px;
+}
+
+.grid-table tr {
+	border-right: 1px solid #C1DAD7;
+	color: #4f6b72;
+}
+
+.grid-table tr.td_jg td {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+/*页面内容部分*/
+.form-content {
+	border: 1px #8EAFD0 solid;
+	padding: 5px 0px 0px 0px;
+	margin: 5px 0 0 0;
+	width: 100%;
+}
+
+/*表单部分*/
+.form {
+	border: 1px #8EAFD0 solid;
+	padding: 5px;
+	width: 100%;
+	margin: 5px;
+	background: #ebf4fb;
+}
+
+.form table {
+	width: 100%;
+	background: #ebf4fb;
+}
+
+.form tr {
+	color: #000666;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
+.form td {
+	border: 1px solid #C1DAD7;
+}
+
+.form td select {
+	margin-left: 0px
+}
+
+.form  label {
+	width: 100%;
+	text-align: right;
+	white-space: nowrap;
+}
+
+/*详细页面部分*/
+.detailTable {
+	width: 100%;
+	background: #ebf4fb;
+}
+
+.detailTable tr {
+	color: #000666;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
+.detailTable td {
+	border-right: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+}
+
+.detailTable  label {
+	width: 100%;
+	text-align: right;
+	white-space: nowrap;
+}
+
+#htmlEditorTd td {
+	border: 0px;
+}

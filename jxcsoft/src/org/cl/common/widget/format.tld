@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+                        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.1.2</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>/f</short-name>
+	<uri>widget/tags-format</uri>
+	<description>页面上的标签工具类</description>
+
+	<tag>
+		<name>d</name>
+		<tag-class>
+			org.cl.common.widget.web.DoubleFormatTag
+		</tag-class>
+		<body-content>jsp</body-content>
+		<attribute>
+			<name>d</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>format</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dictionaryRoot>
+	<!-- 公共的数据字段 ID以2开始
+	<dictionarySort id="2000000001" name="性别" identifier="sex"
+		description="性别">
+		<dictionary id="2000000001001" name="男" code="1" />
+		<dictionary id="2000000001002" name="女" code="2" />
+	</dictionarySort>
+    -->
+     
+</dictionaryRoot>
+
+

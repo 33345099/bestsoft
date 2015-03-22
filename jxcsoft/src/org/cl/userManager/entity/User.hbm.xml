@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.cl.userManager.entity.User" table="um_user">
+
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="org.cl.common.core.orm.IdGenerator">
+			</generator>
+		</id>
+
+		<property name="username" type="java.lang.String">
+			<column name="username" />
+		</property>
+
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+
+		<property name="password" type="java.lang.String">
+			<column name="password" />
+		</property>
+
+		<property name="type" type="java.lang.String">
+			<column name="type" />
+		</property>
+
+
+		<property name="isEnable" type="java.lang.Integer">
+			<column name="is_enable" />
+		</property>
+
+		<property name="isDimission" type="java.lang.Integer">
+			<column name="is_dimission" />
+		</property>
+
+		<property name="isDelete" type="java.lang.Integer">
+			<column name="is_delete" />
+		</property>
+
+		<property name="organizationId" type="java.lang.Long">
+			<column name="organization_id" />
+		</property>
+
+		<property name="roleNames" type="java.lang.String">
+			<column name="role_names" />
+		</property>
+
+
+		<many-to-one name="organization"
+			class="org.cl.userManager.entity.Organization" fetch="select"
+			insert="false" update="false">
+			<column name="organization_id" />
+		</many-to-one>
+
+		<property name="discountRate" type="java.lang.Double">
+			<column name="discount_rate" />
+		</property>
+
+		<property name="dataScopeLevelCode" type="java.lang.String">
+			<column name="data_scope_level_code" />
+		</property>
+
+		<property name="isLookCustomerContract" type="java.lang.Integer">
+			<column name="is_look_customer_contract" />
+		</property>
+
+		<property name="stylistLevels" type="java.lang.String">
+			<column name="stylist_levels" />
+		</property>
+
+		<property name="dataScopeOrgs" type="java.lang.String">
+			<column name="data_scope_orgs" />
+		</property>
+
+		<property name="dutyCode" type="java.lang.String">
+			<column name="duty_code" />
+		</property>
+
+		<property name="filialeId" type="java.lang.Long">
+			<column name="filiale_id" />
+		</property>
+
+		<many-to-one name="filiale"
+			class="org.cl.userManager.entity.Organization" fetch="select"
+			insert="false" update="false">
+			<column name="filiale_id" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<PUBLIC:COMPONENT>
+
+	<PUBLIC:PROPERTY NAME="ROWHEADNUM" />
+	<PUBLIC:PROPERTY NAME="COLHEADNUM" />
+	<PUBLIC:PROPERTY NAME="ROWHEADSTYLE" />
+	<PUBLIC:PROPERTY NAME="COLHEADSTYLE" />
+	<PUBLIC:PROPERTY NAME="ROWSTYLE" />
+
+<script>
+
+	//初始化
+	ROWHEADNUM = (ROWHEADNUM==null?0:parseInt(ROWHEADNUM, 10));
+	COLHEADNUM = (COLHEADNUM==null?0:parseInt(COLHEADNUM, 10));
+	COLHEADSTYLE = (COLHEADSTYLE==null?"":COLHEADSTYLE);
+
+	arrRowStyle = (ROWSTYLE==null?new Array(""):ROWSTYLE.split("|")); 
+	//设置行表头
+	var i, j, rowItem, cellItem;
+	rowHead = element.cloneNode(true);
+	for (i=0; i<ROWHEADNUM; i++) 
+	{
+		rowItem = element.rows(i);
+		if(null==rowItem){
+		  break;
+		}
+		rowItem.style.cssText = 'z-index:10; position:relative; top:expression(this.offsetParent.scrollTop);' + ROWHEADSTYLE;
+	}
+
+	//设置列表头
+	for (i=0; i<element.rows.length; i++) 
+	{
+		rowItem = element.rows(i);
+		if (i>=ROWHEADNUM)
+		{
+			rowItem.style.cssText = "position:relative;" + arrRowStyle[(i - ROWHEADNUM) % arrRowStyle.length];
+		}
+
+		for (j=0; j<COLHEADNUM; j+=cellItem.colSpan) 
+		{
+			cellItem = rowItem.cells(j);
+			cellItem.style.cssText = 'position:relative; left:expression(this.parentElement.offsetParent.scrollLeft);'
+				+ (i<ROWHEADNUM?'':COLHEADSTYLE);
+		}
+	}
+
+
+
+
+
+</script>
+
+</PUBLIC:COMPONENT>

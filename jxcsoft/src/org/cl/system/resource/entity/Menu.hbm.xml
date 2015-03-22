@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.cl.system.resource.entity.Menu"
+		table="sys_menu">
+
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="org.cl.common.core.orm.IdGenerator"></generator>
+		</id>
+
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+
+		<property name="parentId" type="java.lang.Long">
+			<column name="parent_id" />
+		</property>
+
+		<property name="type" type="java.lang.String">
+			<column name="type" />
+		</property>
+
+		<property name="isLeaf" type="java.lang.Integer">
+			<column name="is_leaf" />
+		</property>
+
+		<property name="url" type="java.lang.String">
+			<column name="url" />
+		</property>
+		<property name="orderCode" type="java.lang.Integer">
+			<column name="order_code" />
+		</property>
+
+		<property name="isEnable" type="java.lang.Integer">
+			<column name="is_enable" />
+		</property>
+
+		<many-to-one name="parentMenu"
+			class="org.cl.system.resource.entity.Menu" fetch="select"
+			insert="false" update="false">
+			<column name="parent_id" />
+		</many-to-one>
+
+		<set name="childMenus" inverse="true" cascade="all">
+			<key>
+				<column name="parent_id" />
+			</key>
+			<one-to-many class="org.cl.system.resource.entity.Menu" />
+		</set>
+	</class>
+</hibernate-mapping>

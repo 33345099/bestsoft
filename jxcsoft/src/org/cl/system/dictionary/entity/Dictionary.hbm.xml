@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 
+	数据字典映射文件
+-->
+<hibernate-mapping>
+	<class name="org.cl.system.dictionary.entity.Dictionary" table="sys_dictionary">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="assigned" />
+		</id>
+
+		<property name="identifier" type="java.lang.String">
+			<column name="IDENTIFIER" />
+		</property>
+
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+
+		<property name="code" type="java.lang.String">
+			<column name="code" />
+		</property>
+
+		<property name="orderCode" type="java.lang.Integer">
+			<column name="order_code" />
+		</property>
+
+		<property name="dictionarySortId" type="java.lang.Long">
+			<column name="dictionary_sort_id" />
+		</property>
+
+		<many-to-one name="dictionarySort" class="org.cl.system.dictionary.entity.DictionarySort"
+			fetch="select" insert="false" update="false">
+			<column name="dictionary_sort_id" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

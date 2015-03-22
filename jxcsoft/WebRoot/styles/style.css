@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+html,body {
+	margin:5px 5px 3px 5px;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+}
+
+html,body,form,p,th,td {
+	top: 0;
+	left: 0;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+}
+
+/*两个字的Button*/
+.button {
+	background-image: url(../images/batembg1.gif);
+	background-repeat: no-repeat;
+	width: 62px;
+	height: 21px;
+	padding: 1px;
+	text-align: center;
+	color: #333333;
+	border: 1px #666666 none;
+	font-size: 10px;
+}
+
+/*四个字的Button*/
+.button4 {
+	background-image: url(../images/batembg4.gif);
+	width: 92px;
+	height: 21px;
+	padding: 4px;
+	text-align: center;
+	color: #333333;
+	border: 1px #666666 none;
+	font-size: 12px;
+	margin-right:5px;
+}
+
+/*四个字的Button*/
+.button6 {
+	background-image: url(../images/batembg6.gif);
+	width: 129px;
+	height: 21px;
+	padding: 4px;
+	text-align: center;
+	color: #333333;
+	border: 1px #666666 none;
+	font-size: 12px;
+}
+
+.buttonBack {
+	background-image: url(../images/batembg1.gif);
+	background-repeat: no-repeat;
+	width: 62px;
+	height: 21px;
+	padding: 4px;
+	text-align: center;
+	color: #333333;
+	border: 1px #666666 none;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.star {
+	font-weight: bolder;
+	color: red;
+}
+
+.wdateIcon {
+	vertical-align: middle;
+	height: 15px;
+	width: 15px;
+	background: url(../images/datePicker.gif) left no-repeat;
+}
+
+.grid-table a:link {
+	color: #c75f3e;
+	text-decoration: underline;
+}
+
+.grid-table a:hover {
+	color: #c75f3e;
+	text-decoration: ;
+}
+
+.grid-table a:visited {
+	color: #c75f3e;
+}
+
+.queryForMoreTr {
+	background-color: #ADD3DE;
+	color: #000666;
+	letter-spacing: 2px;
+	text-align: center;
+	padding: 6px 6px 6px 12px;
+	display: none;
+}
+
+#previewImg {
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+}

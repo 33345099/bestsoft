@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.cl.userManager.entity.RoleOperation"
+		table="um_role_operation">
+
+		<id name="id" type="java.lang.Long">
+			<column name="ID" precision="20" scale="0" />
+			<generator class="org.cl.common.core.orm.IdGenerator"></generator>
+		</id>
+
+
+		<property name="roleId" type="java.lang.Long">
+			<column name="role_id" />
+		</property>
+
+		<property name="operationId" type="java.lang.Long">
+			<column name="operation_id" />
+		</property>
+
+		<many-to-one name="role" class="org.cl.userManager.entity.Role"
+			fetch="select" insert="false" update="false">
+			<column name="role_id" />
+		</many-to-one>
+
+		<many-to-one name="operation"
+			class="org.cl.system.resource.entity.Operation" fetch="select"
+			insert="false" update="false">
+			<column name="operation_id" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

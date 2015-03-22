@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+"http://www.getahead.ltd.uk/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+
+		<convert match="org.cl.pm.entity.ConstructViolationProject"
+			converter="bean">
+			<param name="include" value="id,code,name,reduceMark,forfeit,punish"></param>
+		</convert>
+
+		<convert match="org.cl.pm.entity.ViolationCategory"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.cr.entity.ComplainRepairCategory"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.pm.entity.ViolationPunish"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.pm.entity.InspectType" converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.pm.entity.InspectResult" converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.userManager.entity.Organization"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.pm.entity.Monitor" converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<convert match="org.cl.cr.entity.ComplainRepairReason"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<create javascript="userService" creator="spring">
+			<param name="beanName" value="org.cl.userManager.service.UserService" />
+			<include method="updateDimission" />
+			<include method="isUniqueUserByUsername" />
+		</create>
+		
+		<convert match="org.cl.code.entity.CityArea"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+		
+		<convert match="org.cl.code.entity.CityHotspots"
+			converter="bean">
+			<param name="include" value="id,name"></param>
+		</convert>
+
+		<create javascript="vipService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.VipService">
+			</param>
+			<include method="isUniqueContractNo" />
+		</create>
+		
+		<create javascript="customerService" creator="spring">
+			<param name="beanName" value="org.cl.crm.service.CustomerService">
+			</param>
+			<include method="isPastDue" />
+		</create>
+
+		<create javascript="orgInterface" creator="new">
+			<param name="class" value="org.cl.interfaces.OrgInterface">
+			</param>
+		</create>
+
+		<create javascript="monitorService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.MonitorService">
+			</param>
+			<include method="findByConstructId" />
+		</create>
+
+		<create javascript="violationCategoryService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.ViolationCategoryService">
+			</param>
+			<include method="findByCode" />
+		</create>
+
+		<create javascript="violationPunishService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.ViolationPunishService">
+			</param>
+			<include method="findByCode" />
+		</create>
+
+		<create javascript="constructViolationProjectService" creator="spring">
+			<param name="beanName"
+				value="org.cl.pm.service.ConstructViolationProjectService">
+			</param>
+			<include method="findByCode" />
+			<include method="findByCategoryId" />
+			<include method="findById" />
+		</create>
+
+		<create javascript="inspectResultService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.InspectResultService">
+			</param>
+			<include method="findByCode" />
+		</create>
+
+		<create javascript="inspectTypeService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.InspectTypeService">
+			</param>
+			<include method="findByCode" />
+		</create>
+
+		<create javascript="complainRepairCategoryService" creator="spring">
+			<param name="beanName"
+				value="org.cl.cr.service.ComplainRepairCategoryService">
+			</param>
+			<include method="findByParentId" />
+			<include method="findBySubCategoryId" />
+		</create>
+
+		<create javascript="complainRepairService" creator="spring">
+			<param name="beanName" value="org.cl.cr.service.ComplainRepairService">
+			</param>
+			<include method="updateOverById" />
+		</create>
+
+		<create javascript="reasonService" creator="spring">
+			<param name="beanName" value="org.cl.cr.service.ReasonService">
+			</param>
+			<include method="updatePresentCodeById" />
+		</create>
+
+		<create javascript="projectRevisitInfoService" creator="spring">
+			<param name="beanName" value="org.cl.pm.service.ProjectRevisitInfoService">
+			</param>
+			<include method="findOrganizationByRevisitId" />
+		</create>
+
+		<create javascript="gatheringService" creator="spring">
+			<param name="beanName" value="org.cl.fm.service.GatheringService">
+			</param>
+			<include method="calculateReceivables" />
+			<include method="sumPriceByOtherNeedAccept" />
+			<include method="sumPriceByOtherAndTransfer" />
+		</create>
+
+		<create javascript="gatheringScaleService" creator="spring">
+			<param name="beanName" value="org.cl.fm.service.GatheringScaleService">
+			</param>
+			<include method="isUnique" />
+		</create>
+		
+		<create javascript="oquotationService" creator="spring">
+			<param name="beanName" value="org.cl.code.service.OquotationService">
+			</param>
+			<include method="getOquotationInfo" />
+		</create>
+		
+		<create javascript="cityAreaService" creator="spring">
+			<param name="beanName" value="org.cl.code.service.CityAreaService">
+			</param>
+			<include method="findByCityId" />
+		</create>
+		
+		<create javascript="cityHotspotsService" creator="spring">
+			<param name="beanName" value="org.cl.code.service.CityHotspotsService">
+			</param>
+			<include method="findByCityId" />
+		</create>
+
+	</allow>
+</dwr>

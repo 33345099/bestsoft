@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operationRoot>
+	<operation name="添加组织机构" typeCode="system"
+		identifier="organization_add" />
+</operationRoot>

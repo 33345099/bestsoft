@@ -1,0 +1,11 @@
+/.svn/
+/application.properties
+/applicationContext.xml
+/initData/
+/log-config.xml
+/log4j.properties
+/org/
+/struts.properties
+/struts.xml
+/system.properties
+/xwork-conversion.properties
