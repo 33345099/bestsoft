@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>家装erp管理系统</title>
+		<title>erp管理系统</title>
 		<%@ include file="/common/common.jsp"%>
 		<style type="text/css">
 		body{
