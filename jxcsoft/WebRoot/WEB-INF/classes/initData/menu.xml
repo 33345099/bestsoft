@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resourceRoot name="系统" type="0">
+
+	<menu name="首页" type="2" orderCode="1">
+
+		<menu name="个人信息" type="0" orderCode="1"
+			url="system/index!showPersonInfo.action" />
+
+		<menu name="退出系统" type="0" orderCode="3"
+			url="system/security!logout.action" />
+	</menu>
+
+	
+
+	<menu name="系统管理" type="2">
+
+		<menu name="角色管理" type="0" url="userManager/role!listRole.action" />
+
+		<menu name="系统初始化" type="0" url="system/initialize!showInitialize.action" />
+
+		<menu name="日志管理" type="1">
+			<menu name="查看客户联系方式日志" type="0"
+				url="crm/customerContractLog!listCustomerContractLog.action" />
+
+			<menu name="系统登录日志" type="0" url="system/loginLog!listLoginLog.action" />
+
+			<menu name="操作日志" type="3"
+				url="system/operationLog!listOperationLog.action" />
+
+		</menu>
+
+        <menu name="当前在线用户" type="0" url="userManager/user!listOnline.action" />
+	</menu>
+</resourceRoot>

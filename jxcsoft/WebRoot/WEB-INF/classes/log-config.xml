@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logs>
+	<log key="org.cl.userManager.web.UserAction.saveUser"
+		value="系统维护--添加用户" />
+</logs>
